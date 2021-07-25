@@ -1,0 +1,127 @@
+:root {
+    --affirmation: "";
+    --affirmation-color: white;
+}
+
+* {
+    box-sizing: border-box;
+}    
+
+body {
+    margin: 0;
+    background: no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0px 0px 20px #242424;
+}
+
+main {
+    padding: 15px;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "weather"
+        "time"
+        "quote";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.weather { grid-area: weather;  justify-self: end;     align-self: start;  }
+.time    { grid-area: time;     justify-self: center;  align-self: center; }
+.quote   { grid-area: quote;    justify-self: center;  align-self: end;    }
+
+.weather {
+    display: grid;
+    grid-template-areas: 
+        ".    img  temp"
+        "city city city";
+    grid-template-columns: auto 2.7rem max-content;
+    grid-template-rows: 2rem max-content;
+    align-items: center;
+    justify-content: end;
+}
+
+.weather-img  { grid-area: img;   justify-self: center;  align-self: center; }
+.weather-temp { grid-area: temp;  justify-self: center;  align-self: center; }
+.weather-city { grid-area: city;  justify-self: center;  align-self: center; }
+
+.weather-img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.weather-temp {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.weather-city {
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    color: rgba(255,255,255,0.5);
+}
+
+.time {
+    position: relative;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.time::before,
+.time::after {
+    display: block;
+    position: absolute;
+}
+
+.time::before {
+    content: "Welcome back, the time is";
+    bottom: 100%;
+    color: white;
+    text-shadow: none;
+    font-size: 0.175em;
+}
+
+.time::after {
+    top: 100%;
+    right: 0;
+    width: 100%;
+    content: var(--affirmation);
+    font-size: 0.125em;
+    line-height: 1.6;
+    color: var(--affirmation-color);
+    text-align: right;
+}
+
+.quote small {
+    color: rgba(255,255,255,0.5);
+}
+
+.error {
+    margin: 0;
+    color: #ff0033;
+    background-color: rgba(255,0,0,0.2);
+    border: 1px solid #ff0033;
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    line-height: 1.3;
+    font-style: italic;
+}
+
+.error::first-line {
+    font-weight: bold;
+    font-size: 1.1em;
+    font-style: normal;
+}
+
+.error > span {
+    font-weight: 400;
+    font-size: 1em;
+    font-style: normal;
+}
