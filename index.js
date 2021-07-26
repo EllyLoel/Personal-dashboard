@@ -20,9 +20,9 @@ const getBgImg = async () => {
         const data = await res.json()
         if ( data.error ) { throw Error }
         
-        bodyEl.style.backgroundImage = `url(${data.hdurl})`
+        bodyEl.style.backgroundImage = `url(${data.url})`
     } catch(err) {
-        bodyEl.style.backgroundImage = `url(https://apod.nasa.gov/apod/image/2003/C2019Y4_200318_FB.jpg)`
+        bodyEl.style.backgroundImage = `url(https://apod.nasa.gov/apod/image/2107/neptunetriton_voyager_960.jpg)`
     }
 }
 
