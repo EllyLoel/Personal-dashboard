@@ -1,7 +1,8 @@
+/* This is no longer needed as the affirmation api does not work.
 :root {
     --affirmation: "";
     --affirmation-color: white;
-}
+} */
 
 * {
     box-sizing: border-box;
@@ -78,25 +79,22 @@ main {
 .time::after {
     display: block;
     position: absolute;
+    font-size: 0.175em;
+    color: white;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .time::before {
     content: "Welcome back, the time is";
     bottom: 100%;
-    color: white;
-    text-shadow: none;
-    font-size: 0.175em;
+    left: 0;
 }
 
 .time::after {
+    content: "have a wonderful day!";
     top: 100%;
-    right: 0;
-    width: 100%;
-    content: var(--affirmation);
-    font-size: 0.125em;
-    line-height: 1.6;
-    color: var(--affirmation-color);
-    text-align: right;
+    right: 0.5ch;
 }
 
 .quote small {

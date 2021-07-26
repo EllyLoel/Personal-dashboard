@@ -58,22 +58,23 @@ const getCurrentTime = () => {
 }
 
 ///////////////
-// Get & display affirmation
+// Get & display affirmation        !!! Unfortunately this api does not work any longer !!!
 ///////////////
-const getAffirmation = async () => {
-    try {
-        const res = await fetch("https://cors-anywhere.herokuapp.com/https://www.affirmations.dev")
-        if ( !res.ok ) {
-            throw Error("Something went wrong when fetching the affirmation. Try refreshing your page.")
-        }
-        const data = await res.json()
+// const getAffirmation = async () => {
+//     try {
+//         const res = await fetch("https://cors-anywhere.herokuapp.com/https://www.affirmations.dev")
+//         if ( !res.ok ) {
+//             throw Error("Something went wrong when fetching the affirmation. Try refreshing your page.")
+//         }
+//         const data = await res.json()
         
-        root.style.setProperty('--affirmation', `"${data.affirmation}"`)
-    } catch(err) {
-        root.style.setProperty('--affirmation-color', 'red')
-        root.style.setProperty('--affirmation', `"${err}"`)
-    }
-}
+//         root.style.setProperty('--affirmation', `"${data.affirmation}"`)
+//     } catch(err) {
+//         root.style.setProperty('--affirmation-color', 'red')
+//         root.style.setProperty('--affirmation', `"${err}"`)
+//     }
+// }
+
 
 ///////////////
 // Get & display quote
@@ -97,5 +98,5 @@ const getQuote = async () => {
 ///////////////
 getBgImg()
 setInterval(getCurrentTime, 1000)
-getAffirmation()
+// getAffirmation()
 getQuote()
