@@ -18,7 +18,7 @@ const getBgImg = async () => {
         
         const res = await fetch(`${nasaApiUrl}${nasaEndpoint}${nasaQuery}`)
         const data = await res.json()
-        if ( data.error ) { throw Error }
+        if ( data.error || data.media_type === "video" ) { throw Error }
         
         bodyEl.style.backgroundImage = `url(${data.url})`
     } catch(err) {
